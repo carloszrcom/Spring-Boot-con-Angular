@@ -1,0 +1,46 @@
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">{{ err }}</li>
+</ul>
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ tituloPagina }}</div>
+  <div class="card-body">
+  <!--  <form (ngSubmit)="create()"> Quitamos el ngSubmit porque pondremos el método create en el botón -->
+    <form #anuncioForm="ngForm">
+      <div class="form-group row">
+        <label for="titulo" class="col-form-label col-sm-2">Título</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="titulo" [(ngModel)]="anuncio.titulo" #titulo="ngModel"> <!-- required minlength="4" -->
+          <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+            <div *ngIf="titulo.errors.required">
+              El Título es requerido.
+            </div>
+            <div *ngIf="titulo.errors.minlength">
+              El Título debe tener al menos 4 caracteres.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="historia" class="col-form-label col-sm-2">Historia</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="historia" [(ngModel)]="anuncio.historia" #historia="ngModel"> <!-- required -->
+          <div class="alert alert-danger" *ngIf="historia.invalid && (historia.dirty || historia.touched)">
+            <div *ngIf="historia.errors.required">
+              La Historia es requerida.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!anuncio.id else elseBlock" [disabled]="!anuncioForm.form.valid">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!anuncioForm.form.valid">Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

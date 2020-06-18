@@ -1,0 +1,39 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Anuncios</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Anuncios</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/anuncios/form']">Crear Anuncio</button>
+    </div>
+    <div *ngIf="anuncios?.length == 0" class="alert alert-info">
+      ¡No hay registros en la base de datos!
+    </div>
+    <table class="table table-bordered table-striped text-primary" *ngIf="anuncios?.length > 0"> <!-- Validamos que anuncios tiene datos -->
+      <thead class="">
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Historia</th>
+          <th>Fecha</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr *ngFor="let anuncio of anuncios">
+          <td>{{ anuncio.id }}</td>
+          <td>{{ anuncio.titulo }}</td>
+          <td>{{ anuncio.historia | uppercase}}</td>
+          <td>{{ anuncio.createAt | date: "EEEE dd, MMMM yyyy" }}</td>
+          <td>
+            <button type="button" name="editar" class="btn btn-primary" [routerLink]="['/anuncios/form', anuncio.id]">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)="delete(anuncio)" class="btn btn-danger">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <paginator-nav></paginator-nav>
+  </div>
+</div>

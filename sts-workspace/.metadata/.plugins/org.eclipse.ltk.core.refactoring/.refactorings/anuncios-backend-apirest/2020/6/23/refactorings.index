@@ -1,0 +1,4 @@
+1591115783023	Rename type 'IClienteService'
+1591115803096	Rename type 'IClienteServiceImpl'
+1591115837661	Rename type 'IClienteDao'
+1591115938956	Rename field 'clienteDao'
