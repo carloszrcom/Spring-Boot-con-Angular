@@ -13,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 export class AnunciosComponent implements OnInit {
 
   anuncios: Anuncio[];
+  paginador: any;
+
   constructor(
     private anuncioService: AnuncioService, private activatedRoute: ActivatedRoute) { } // ActivatedRoute para indicar que 'page' puede cambiar
 
@@ -25,7 +27,7 @@ export class AnunciosComponent implements OnInit {
         if(!page) {
           page = 0;
         }
-        
+
         this.anuncioService.getAnuncios(page)
           .pipe(
             tap(
@@ -40,7 +42,12 @@ export class AnunciosComponent implements OnInit {
               }
             )
           )
-          .subscribe(response => this.anuncios = response.content as Anuncio[]);  // 'anuncios' viene de la conversión realizada en el 'map' de anuncio.service.ts
+          .subscribe(
+            response => {
+              this.anuncios = response.content as Anuncio[];
+              this.paginador = response;
+            }
+          );
       }
     );
   }
