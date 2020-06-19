@@ -20,5 +20,5 @@ spring.datasource.password=1234
 
 #server.port=8080
 
-#spring.jackson.time-zone=
-#spring.jackson.locale=es_ES
+spring.jackson.time-zone=
+spring.jackson.locale=es_ES

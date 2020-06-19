@@ -49,4 +49,5 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
 </qualifiedTypeNameHistroy>
