@@ -36,7 +36,10 @@
       <div class="form-group row">
         <label for="createAt" class="col-form-label col-sm-2">Fecha</label>
         <div class="col-sm-6">
-          <input type="date" class="form-control" name="createAt" [(ngModel)]="anuncio.createAt">
+          <!-- <input type="date"  class="form-control" name="createAt" [(ngModel)]="anuncio.createAt"> Sustituimos este input por el siguiente de Angular Material -->
+          <input [matDatepicker]="miDatepicker" class="form-control" name="createAt" [(ngModel)]="anuncio.createAt" style="display:inline; width:60%;">
+          <mat-datepicker-toggle [for]="miDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #miDatepicker></mat-datepicker> <!-- Con # estamos creando una variable de contexto -->
         </div>
       </div>
 

@@ -20,12 +20,5 @@ spring.datasource.password=1234
 
 #server.port=8080
 
-# Time zone used when formatting dates. For instance, "America/Los_Angeles" or "GMT+10".
 spring.jackson.time-zone=GMT+2
-
-# Locale used for formatting
 spring.jackson.locale=es_ES
-
-# Tamaño máximo de los archivos
-spring.servlet.multipart.max-file-size=1MB
-spring.servlet.multipart.max-request-size=10MB

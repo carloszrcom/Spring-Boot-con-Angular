@@ -28,4 +28,3 @@ spring.jackson.locale=es_ES
 
 # Tamaño máximo de los archivos
 spring.servlet.multipart.max-file-size=1MB
-spring.servlet.multipart.max-request-size=10MB

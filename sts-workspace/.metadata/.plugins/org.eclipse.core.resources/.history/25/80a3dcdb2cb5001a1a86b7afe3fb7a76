@@ -41,8 +41,6 @@ public class Anuncio implements Serializable {
 //		createAt = new Date();
 //	}
 	
-	private String foto;
-	
 	public Long getId() {
 		return id;
 	}
@@ -74,16 +72,6 @@ public class Anuncio implements Serializable {
 	public void setHistoria(String historia) {
 		this.historia = historia;
 	}
-	
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
 
 	/**
 	 * 
