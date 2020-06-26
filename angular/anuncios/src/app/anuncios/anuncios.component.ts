@@ -72,7 +72,7 @@ export class AnunciosComponent implements OnInit {
               'Anuncio eliminado!',
               `Anuncio ${anuncio.titulo} eliminado con éxito`,
               'success'
-            )
+            );
           }
         );
       }

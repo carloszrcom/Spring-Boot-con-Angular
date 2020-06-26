@@ -6953,3 +6953,99 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 07:58:32.684
 !MESSAGE executing callback sts4.classpath.wHwsKQTW SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 10:34:56.107
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wHwsKQTW
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 10:34:56.116
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.wHwsKQTW
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 10:34:56.124
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 10:34:56.131
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wHwsKQTW => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:37.384
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:37.389
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@3d28c0af[org.springframework.tooling.boot.ls:1.14.0.201912170939(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:37.394
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.526
+!MESSAGE Boot LS startup time from start to initialized: 3127ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.559
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.uxarqygPisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.568
+!MESSAGE subscribing to classpath changes: sts4.classpath.uxarqygP isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.574
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.581
+!MESSAGE subsribers = {sts4.classpath.uxarqygP=Send Classpath Notifications(504)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.587
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.593
+!MESSAGE project anuncios-backend-apirest ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.600
+!MESSAGE Preparing classpath changed notification anuncios-backend-apirest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.608
+!MESSAGE project spring-boot-backend-apirest ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.614
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.618
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.622
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.uxarqygP => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.639
+!MESSAGE classpath=96 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.646
+!MESSAGE buffering callback sts4.classpath.uxarqygP anuncios-backend-apirest false 96
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.651
+!MESSAGE Preparing classpath changed notification spring-boot-backend-apirest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.668
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.695
+!MESSAGE classpath=97 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.708
+!MESSAGE buffering callback sts4.classpath.uxarqygP spring-boot-backend-apirest false 97
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.714
+!MESSAGE executing callback sts4.classpath.uxarqygP 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 11:05:40.744
+!MESSAGE executing callback sts4.classpath.uxarqygP SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 13:18:27.118
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.uxarqygP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 13:18:27.128
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.uxarqygP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 13:18:27.132
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-26 13:18:27.138
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.uxarqygP => OK
+
+!ENTRY org.eclipse.ui 2 2 2020-06-26 13:18:27.532
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)

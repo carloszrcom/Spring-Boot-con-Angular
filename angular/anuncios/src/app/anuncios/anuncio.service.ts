@@ -131,6 +131,29 @@ export class AnuncioService {
       })
     );
   }
+
+  subirFoto(archivo: File, id): Observable<Anuncio> {
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("id", id);
+
+    return this.http.post(`${this.urlEndPoint}/upload`, formData).pipe(
+      map((response: any) => response.anuncio as Anuncio),
+      catchError(e => {
+        console.error('Error al subir. ' + e.error.mensaje);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al subir la foto.',
+          text: "Mensaje: " + e.error.mensaje
+          });
+        return throwError(e);
+      })
+    );
+  }
+
+
+
+
   // Esta es la forma usando map
   /*getAnuncios(): Observable<Anuncio[]> {
       //return of(ANUNCIOS);

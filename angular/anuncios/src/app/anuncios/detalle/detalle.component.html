@@ -1,0 +1,35 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ tituloPagina }}</div>
+  <div class="card-body">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+
+          <ul *ngIf="anuncio" class="list-group text-dark mb-3">
+            <li class="list-group-item active">{{anuncio.titulo}}</li>
+            <li class="list-group-item">{{anuncio.historia}}</li>
+            <li class="list-group-item">{{anuncio.createAt | date:"fullDate"}}</li>
+          </ul>
+
+          <div class="input-group">
+            <div class="custom-file">
+              <input (change)="seleccionarFoto($event)" type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+              <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
+            </div>
+            <div class="input-group-append">
+              <button (click)="subirFoto()" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Aceptar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <img class="img-thumbnail rounded" *ngIf="anuncio?.foto" src="http://localhost:8080/api/uploads/img/{{anuncio.foto}}" alt="{{anuncio.foto}}">
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

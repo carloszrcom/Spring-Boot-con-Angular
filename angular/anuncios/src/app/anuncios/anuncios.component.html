@@ -21,7 +21,7 @@
       </thead>
       <tbody class="">
         <tr *ngFor="let anuncio of anuncios">
-          <td>{{ anuncio.id }}</td>
+          <td><button type="button" name="button" class="btn btn-success" [routerLink]="['/anuncios/ver', anuncio.id]">{{ anuncio.id }}</button></td>
           <td>{{ anuncio.titulo }}</td>
           <td>{{ anuncio.historia | uppercase}}</td>
           <td>{{ anuncio.createAt | date: "EEEE dd, MMMM yyyy" }}</td>

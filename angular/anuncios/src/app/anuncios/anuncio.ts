@@ -3,4 +3,5 @@ export class Anuncio {
   titulo: string;
   historia: string;
   createAt: string;
+  foto: string;
 }
