@@ -2546,3 +2546,4 @@
 2020-06-26 09:29:34,741 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2020-06-26 09:29:34,744 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-06-26 09:29:34,744 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\spring5\sts-workspace\anuncios-backend-apirest\src\test\resources
+2020-06-26 18:45:02,839 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

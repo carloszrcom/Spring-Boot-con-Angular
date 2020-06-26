@@ -39,17 +39,28 @@ export class DetalleComponent implements OnInit {
   }
 
   subirFoto() {
-    this.anuncioService.subirFoto(this.fotoSeleccionada, this.anuncio.id)
-      .subscribe(
-        anuncio => {
-          this.anuncio = anuncio;
-          Swal.fire(
-            '¡Foto subida!',
-            `La foto ${this.anuncio.foto} se ha subido con éxito`,
-            'success'
-          );
 
-        }
+    if(!this.fotoSeleccionada) {
+      Swal.fire(
+        'Error Upload',
+        `Debe seleccionar una foto.`,
+        'error'
       );
+
+    } else {
+      this.anuncioService.subirFoto(this.fotoSeleccionada, this.anuncio.id)
+        .subscribe(
+          anuncio => {
+            this.anuncio = anuncio;
+            Swal.fire(
+              '¡Foto subida!',
+              `La foto ${this.anuncio.foto} se ha subido con éxito`,
+              'success'
+            );
+
+          }
+        );
+    }
   }
+
 }
