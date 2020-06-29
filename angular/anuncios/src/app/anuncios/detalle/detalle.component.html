@@ -1,4 +1,5 @@
-<div class="modal" *ngIf="modalService.modal" tabindex="-1" role="dialog" style="display: block;">
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+<div class="modal" tabindex="-1" role="dialog" style="display: block;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -42,11 +43,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="cerrarModal()" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()" data-dismiss="modal">Cerrar</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
