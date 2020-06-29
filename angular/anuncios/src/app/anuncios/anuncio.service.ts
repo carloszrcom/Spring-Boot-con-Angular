@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Anuncio } from './anuncio';
 import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpEvent} from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { formatDate, DatePipe } from '@angular/common';
@@ -132,23 +132,29 @@ export class AnuncioService {
     );
   }
 
-  subirFoto(archivo: File, id): Observable<Anuncio> {
+  subirFoto(archivo: File, id): Observable<HttpEvent<{}>> {
     let formData = new FormData();
     formData.append("archivo", archivo);
     formData.append("id", id);
 
-    return this.http.post(`${this.urlEndPoint}/upload`, formData).pipe(
-      map((response: any) => response.anuncio as Anuncio),
-      catchError(e => {
-        console.error('Error al subir. ' + e.error.mensaje);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error al subir la foto.',
-          text: "Mensaje: " + e.error.mensaje
-          });
-        return throwError(e);
-      })
-    );
+    const req = new HttpRequest('POST', `${this.urlEndPoint}/upload`, formData, {
+      reportProgress: true
+    });
+
+    return this.http.request(req);
+
+    // return this.http.post(`${this.urlEndPoint}/upload`, formData).pipe(
+    //   map((response: any) => response.anuncio as Anuncio),
+    //   catchError(e => {
+    //     console.error('Error al subir. ' + e.error.mensaje);
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Error al subir la foto.',
+    //       text: "Mensaje: " + e.error.mensaje
+    //       });
+    //     return throwError(e);
+    //   })
+    // );
   }
 
 

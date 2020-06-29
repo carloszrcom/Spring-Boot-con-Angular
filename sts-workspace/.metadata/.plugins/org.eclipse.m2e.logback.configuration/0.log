@@ -2547,3 +2547,14 @@
 2020-06-26 09:29:34,744 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-06-26 09:29:34,744 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\spring5\sts-workspace\anuncios-backend-apirest\src\test\resources
 2020-06-26 18:45:02,839 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-06-29 09:42:19,398 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-06-29 09:54:45,974 [Worker-9: Launching anuncios-backend-apirest - AnunciosBackendApirestApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-29 09:54:45,979 [Worker-9: Launching anuncios-backend-apirest - AnunciosBackendApirestApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-06-29 09:54:45,997 [Worker-9: Launching anuncios-backend-apirest - AnunciosBackendApirestApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-06-29 09:54:46,013 [Worker-9: Launching anuncios-backend-apirest - AnunciosBackendApirestApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-29 09:54:46,013 [Worker-9: Launching anuncios-backend-apirest - AnunciosBackendApirestApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\spring5\sts-workspace\anuncios-backend-apirest\src\test\resources
+2020-06-29 09:54:49,150 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-29 09:54:49,150 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-06-29 09:54:49,166 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-06-29 09:54:49,179 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-29 09:54:49,179 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\spring5\sts-workspace\spring-boot-backend-apirest\src\test\resources
