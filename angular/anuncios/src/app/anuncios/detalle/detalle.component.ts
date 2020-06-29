@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpEventType } from '@angular/common/http';
 import { Anuncio } from '../anuncio';
 import { AnuncioService } from '../anuncio.service';
-import { ActivatedRoute } from '@angular/router';
+import { ModalService } from './modal.service';
+// import { ActivatedRoute } from '@angular/router'; // Lo hemos sustituido por ModalService
 
 import Swal from 'sweetalert2';
 
@@ -13,27 +14,31 @@ import Swal from 'sweetalert2';
 })
 export class DetalleComponent implements OnInit {
 
-  anuncio: Anuncio;
+  @Input() anuncio: Anuncio;
   tituloPagina: string = "Detalle del anuncio";
   fotoSeleccionada: File;
   progreso: number = 0; // Progreso de subida de la foto
 
-  constructor(private anuncioService: AnuncioService, private activatedRoute: ActivatedRoute) { // Necesitamos ActivatedRoute cuando cambia un parámetro del id
+  constructor(
+    private anuncioService: AnuncioService,
+    public modalService: ModalService
+    // private activatedRoute: ActivatedRoute  // Necesitamos ActivatedRoute cuando cambia un parámetro del id
+  ) {
    }
 
-  ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe( // Vamos a suscribir cuando cambia el parámetro del id
-      params => {
-        let id: number = +params.get('id'); // Con el + convertimos el parámetro a tipo number
-        if(id) {
-          this.anuncioService.getAnunio(id).subscribe(
-            anuncio => {
-              this.anuncio = anuncio;
-            }
-          );
-        }
-      }
-    );
+  ngOnInit(): void { // Prescindimos del siguiente código por inyectar el anuncio mediante Input
+    // this.activatedRoute.paramMap.subscribe( // Vamos a suscribir cuando cambia el parámetro del id
+    //   params => {
+    //     let id: number = +params.get('id'); // Con el + convertimos el parámetro a tipo number
+    //     if(id) {
+    //       this.anuncioService.getAnunio(id).subscribe(
+    //         anuncio => {
+    //           this.anuncio = anuncio;
+    //         }
+    //       );
+    //     }
+    //   }
+    // );
   }
 
   seleccionarFoto(event) {
@@ -69,6 +74,12 @@ export class DetalleComponent implements OnInit {
           }
         );
     }
+  }
+
+  cerrarModal() {
+    this.modalService.cerrarModal();
+    this.fotoSeleccionada = null;
+    this.progreso = 0;
   }
 
 }

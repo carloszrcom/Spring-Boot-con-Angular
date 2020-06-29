@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Anuncio } from './anuncio';
 import { AnuncioService } from './anuncio.service';
+import { ModalService } from './detalle/modal.service';
 import Swal from 'sweetalert2';
 import { tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -14,9 +15,12 @@ export class AnunciosComponent implements OnInit {
 
   anuncios: Anuncio[];
   paginador: any;
+  anuncioSeleccionado: Anuncio;
 
   constructor(
-    private anuncioService: AnuncioService, private activatedRoute: ActivatedRoute) { } // ActivatedRoute para indicar que 'page' puede cambiar
+    private anuncioService: AnuncioService,
+    private modalService: ModalService ,
+    private activatedRoute: ActivatedRoute) { } // ActivatedRoute para indicar que 'page' puede cambiar
 
   ngOnInit(): void {
 
@@ -77,6 +81,11 @@ export class AnunciosComponent implements OnInit {
         );
       }
     })
+  }
+
+  abrirModal(anuncio: Anuncio) {
+    this.anuncioSeleccionado = anuncio;
+    this.modalService.abrirModal();
   }
 
 }

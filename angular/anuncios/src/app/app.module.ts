@@ -28,8 +28,8 @@ const routes: Routes= [
   {path: 'anuncios', component: AnunciosComponent},
   {path: 'anuncios/page/:page', component: AnunciosComponent},
   {path: 'anuncios/form', component: FormComponent},
-  {path: 'anuncios/form/:id', component: FormComponent},
-  {path: 'anuncios/ver/:id', component: DetalleComponent}
+  {path: 'anuncios/form/:id', component: FormComponent}
+  // {path: 'anuncios/ver/:id', component: DetalleComponent}
 ];
 
 @NgModule({
