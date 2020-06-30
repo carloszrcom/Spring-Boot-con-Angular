@@ -1,24 +1,18 @@
 package com.anuncios.apirest.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,7 +20,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-//import org.springframework.validation.FieldError;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,12 +30,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.anuncios.apirest.models.entity.Anuncio;
 import com.anuncios.apirest.models.services.IAnuncioService;
+import com.anuncios.apirest.models.services.IUploadFileService;
 
 // Este va a ser nuestro API REST
 
@@ -49,13 +43,15 @@ import com.anuncios.apirest.models.services.IAnuncioService;
 @RestController
 @RequestMapping("/api")
 public class AnuncioRestController {
+	
+	@Autowired
+	private IUploadFileService uploadService;
 
 	@Autowired
 	private IAnuncioService anuncioService; // Cuando se declara un Bean cion su tipo genérico ya sea interfaz o clase abstracta, va a buscar
 											// el primer candidato. Una clase concreta que implemente esta interface y la va a inyectar.
 											// Si tuviera más de una hay que usar un cualificador (qualifiying)
 	
-	private final Logger log = LoggerFactory.getLogger(AnuncioRestController.class);
 	
 	@GetMapping("/anuncios")
 	public List<Anuncio> index() {
@@ -181,13 +177,7 @@ public class AnuncioRestController {
 			Anuncio anuncio = anuncioService.findById(id);
 			String nombreFotoAnterior = anuncio.getFoto();
 			
-			if(nombreFotoAnterior != null && nombreFotoAnterior.length() > 0) {
-				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-				File archivoFotoAnterior = rutaFotoAnterior.toFile();
-				if (archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
-					archivoFotoAnterior.delete();
-				}
-			}
+			uploadService.eliminiar(nombreFotoAnterior);
 			
 			anuncioService.delete(id);
 		} catch (DataAccessException e) {
@@ -210,28 +200,20 @@ public class AnuncioRestController {
 		Anuncio anuncio = anuncioService.findById(id);
 		
 		if(!archivo.isEmpty()) {
-			String nombreArchivo = UUID.randomUUID().toString() + "_" + archivo.getOriginalFilename().replace(" ", ""); // UUID: para que no haya nombres de archivos repetidos
-			Path rutaArchivo = Paths.get("uploads").resolve(nombreArchivo).toAbsolutePath();
 			
-			log.info(rutaArchivo.toString()); // Enviamos mensaje al log
+			String nombreArchivo = null;
 			
 			try {
-				Files.copy(archivo.getInputStream(), rutaArchivo);
+				nombreArchivo = uploadService.copiar(archivo);
 			} catch (IOException e) {
-				response.put("mensaje", "Error al subir la imagen del anuncio: " + nombreArchivo);
+				response.put("mensaje", "Error al subir la imagen del anuncio.");
 				response.put("error", e.getMessage().concat(":  ").concat(e.getCause().getMessage()));
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			
 			String nombreFotoAnterior = anuncio.getFoto();
 			
-			if(nombreFotoAnterior != null && nombreFotoAnterior.length() > 0) {
-				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-				File archivoFotoAnterior = rutaFotoAnterior.toFile();
-				if (archivoFotoAnterior.exists() && archivoFotoAnterior.canRead()) {
-					archivoFotoAnterior.delete();
-				}
-			}
+			uploadService.eliminiar(nombreFotoAnterior);
 			
 			anuncio.setFoto(nombreArchivo);
 			anuncioService.save(anuncio);
@@ -248,20 +230,12 @@ public class AnuncioRestController {
 	@GetMapping("/uploads/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto) {
 		
-		Path rutaArchivo = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
-		
-		log.info(rutaArchivo.toString()); // Enviamos mensaje al log
-		
 		Resource recurso = null;
-		
+	
 		try {
-			recurso = new UrlResource(rutaArchivo.toUri());
+			recurso = uploadService.cargar(nombreFoto);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}
-		
-		if(!recurso.exists() && !recurso.isReadable()) {
-			throw new RuntimeException("Error, no se pudo cargar la imagen " + nombreFoto + ".");
 		}
 		
 		// Para forzar la descarga
@@ -270,15 +244,4 @@ public class AnuncioRestController {
 		
 		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -54,6 +54,16 @@ export class AnunciosComponent implements OnInit {
           );
       }
     );
+    this.modalService.notificarUpload.subscribe(
+      anuncio => {
+        this.anuncios = this.anuncios.map(anuncioOriginal => {
+          if(anuncio.id == anuncioOriginal.id) {
+            anuncioOriginal.foto = anuncio.foto;
+          }
+          return anuncioOriginal;
+        });
+      }
+    );
   }
 
   // Borrar Anuncio

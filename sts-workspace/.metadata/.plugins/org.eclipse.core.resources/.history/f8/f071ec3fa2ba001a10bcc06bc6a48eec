@@ -1,0 +1,5 @@
+package com.anuncios.apirest.models.services;
+
+public class UploadFileServiceImpl {
+
+}

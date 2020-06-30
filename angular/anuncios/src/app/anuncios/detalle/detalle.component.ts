@@ -69,6 +69,9 @@ export class DetalleComponent implements OnInit {
             } else if(event.type === HttpEventType.Response) {
               let response: any = event.body;
               this.anuncio = response.anuncio as Anuncio;
+
+              // Cada vez que subamos una foto tenemos que notificar a nuestros observadores
+              this.modalService.notificarUpload.emit(this.anuncio);
               Swal.fire('¡Foto subida!', response.mensaje, 'success');
             }
           }

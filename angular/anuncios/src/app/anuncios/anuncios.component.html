@@ -13,7 +13,7 @@
     <table class="table table-bordered table-striped text-primary" *ngIf="anuncios?.length > 0"> <!-- Validamos que anuncios tiene datos -->
       <thead class="">
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>Título</th>
           <th>Historia</th>
           <th>Fecha</th>
@@ -24,7 +24,14 @@
       <tbody class="">
         <tr *ngFor="let anuncio of anuncios">
           <!-- <td><button type="button" name="button" class="btn btn-success" [routerLink]="['/anuncios/ver', anuncio.id]">{{ anuncio.id }}</button></td> -->
-          <td><button type="button" class="btn btn-success" name="button" (click)="abrirModal(anuncio)">{{ anuncio.id }}</button></td>
+          <td>
+            <img class="img-thumbnail rounded" *ngIf="anuncio?.foto" (click)="abrirModal(anuncio)"
+            src="http://localhost:8080/api/uploads/img/{{anuncio.foto}}" alt="{{anuncio.foto}}" style="width: 64px; cursor: pointer;">
+
+            <img class="img-thumbnail rounded" *ngIf="!anuncio?.foto" (click)="abrirModal(anuncio)"
+            src="http://localhost:8080/images/no-usuario.png" alt="sin foto" style="width: 64px; cursor: pointer;">
+            <button type="button" class="btn btn-success" name="button" (click)="abrirModal(anuncio)">{{ anuncio.id }}</button>
+          </td>
           <td>{{ anuncio.titulo }}</td>
           <td>{{ anuncio.historia | uppercase}}</td>
           <td>{{ anuncio.createAt | date: "EEEE dd, MMMM yyyy" }}</td>
