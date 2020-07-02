@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.anuncios.apirest.models.dao.IAnuncioDao;
 import com.anuncios.apirest.models.entity.Anuncio;
+import com.anuncios.apirest.models.entity.Region;
 
 @Service
 public class AnuncioServiceImpl implements IAnuncioService {
@@ -45,5 +46,11 @@ public class AnuncioServiceImpl implements IAnuncioService {
 	@Transactional
 	public void delete(Long id) {
 		anuncioDao.deleteById(id);		
+	}
+
+	@Override
+	@Transactional(readOnly = true)  // Para que lo que se realice sea de sólo lectura
+	public List<Region> findAllRegiones() {
+		return anuncioDao.findAllRegiones();
 	}
 }

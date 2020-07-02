@@ -49,6 +49,7 @@ public class Anuncio implements Serializable {
 	private String foto;
 	
 	// El anuncio contiene una región, pero una región puede tener muchos anuncios
+	@NotNull(message = "La región no puede estar vacía.")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // Omite la generación de atributos adicionales en la generación del JSON al utilizar el proxy LAZY. Si no jhacemos esto lanzará un error.

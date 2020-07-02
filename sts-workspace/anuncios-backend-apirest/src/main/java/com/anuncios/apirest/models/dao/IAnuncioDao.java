@@ -10,6 +10,6 @@ import com.anuncios.apirest.models.entity.Region;
 
 public interface IAnuncioDao extends JpaRepository<Anuncio, Long> {  // Antes de la paginación realizábamos el extends de CrudRepository
 
-	@Query("from Region")
+	@Query("from Region")  // select r from Region r
 	public List<Region> findAllRegiones();
 }

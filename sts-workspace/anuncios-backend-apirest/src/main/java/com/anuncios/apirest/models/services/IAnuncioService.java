@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.anuncios.apirest.models.entity.Anuncio;
+import com.anuncios.apirest.models.entity.Region;
 
 public interface IAnuncioService {
 
@@ -18,4 +19,6 @@ public interface IAnuncioService {
 	public Anuncio save(Anuncio anuncio);
 	
 	public void delete(Long id);
+	
+	public List<Region> findAllRegiones();
 }

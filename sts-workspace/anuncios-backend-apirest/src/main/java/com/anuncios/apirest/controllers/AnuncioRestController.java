@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.anuncios.apirest.models.entity.Anuncio;
+import com.anuncios.apirest.models.entity.Region;
 import com.anuncios.apirest.models.services.IAnuncioService;
 import com.anuncios.apirest.models.services.IUploadFileService;
 
@@ -155,6 +156,8 @@ public class AnuncioRestController {
 			anuncioActual.setTitulo(anuncio.getTitulo());
 			anuncioActual.setHistoria(anuncio.getHistoria());
 			anuncioActual.setCreateAt(anuncio.getCreateAt());
+			anuncioActual.setRegion(anuncio.getRegion());
+			
 			anuncioUpdated = anuncioService.save(anuncioActual);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al actualizar el anuncio en la base de datos.");
@@ -243,5 +246,11 @@ public class AnuncioRestController {
 		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() +  "\"");
 		
 		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
+	}
+	
+	// Listar regiones
+	@GetMapping("/anuncios/regiones")
+	public List<Region> listarRegiones() {
+		return anuncioService.findAllRegiones();
 	}
 }
