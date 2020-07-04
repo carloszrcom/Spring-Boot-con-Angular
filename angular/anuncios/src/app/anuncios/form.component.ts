@@ -76,4 +76,13 @@ export class FormComponent implements OnInit {
       }
     );
   }
+
+  // Compara las los objetos region para que quede seleccionada la región origen en el formulario al editar un anuncio
+  compararRegion(o1: Region, o2: Region): boolean {
+    if (o1 === undefined && o2 === undefined) {
+      return true;
+    }
+   
+    return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1.id === o2.id;
+  }
 }
