@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Anuncio } from './anuncio';
+import { Region } from './region';
 import { AnuncioService } from './anuncio.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -14,6 +15,7 @@ export class FormComponent implements OnInit {
   public anuncio: Anuncio = new Anuncio();
   public tituloPagina: string = "Crear Anuncio";
   public errores: string[];
+  regiones: Region[];
 
   constructor(
     private anuncioService: AnuncioService,
@@ -22,7 +24,13 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Suscribir observador para editar un anuncio
     this.cargarAnuncio();
+
+    // Suscribirnos al listado de regiones, para poblar la lista desplegable 'select'.
+    this.anuncioService.getRegiones().subscribe(regiones => {
+      this.regiones = regiones;
+    });
   }
 
   // Carga un anuncio

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Anuncio } from './anuncio';
+import { Region } from './region';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEvent} from '@angular/common/http';
 import Swal from 'sweetalert2';
@@ -19,6 +20,9 @@ export class AnuncioService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  getRegiones(): Observable<Region[]> {
+    return this.http.get<Region[]>(this.urlEndPoint + '/regiones');
+  }
 
   // Obtiene todos los anuncios (paginado)
   getAnuncios(page: number): Observable<any> {
