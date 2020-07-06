@@ -47,8 +47,11 @@ export class FormComponent implements OnInit {
 
   // Crea un anuncio
   create(): void {
-    console.log("¡Clicado!");
+
     console.log(this.anuncio);
+
+    console.log("¡Clicado!");
+
     this.anuncioService.create(this.anuncio).subscribe(
       anuncio => {
         this.router.navigate(['/anuncios']); // Redirige al listado de anuncios
@@ -64,6 +67,9 @@ export class FormComponent implements OnInit {
 
   // Actualizar un anuncio
   update(): void {
+
+    console.log(this.anuncio);
+
     this.anuncioService.update(this.anuncio).subscribe(
       json => {
         this.router.navigate(['/anuncios']);
@@ -82,7 +88,7 @@ export class FormComponent implements OnInit {
     if (o1 === undefined && o2 === undefined) {
       return true;
     }
-   
+
     return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1.id === o2.id;
   }
 }
