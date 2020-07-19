@@ -9760,3 +9760,138 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 19:25:51.984
 !MESSAGE executing callback sts4.classpath.HkifpMWx SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:04:26.376
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.HkifpMWx
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:04:26.381
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.HkifpMWx
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:04:26.386
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:04:26.390
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.HkifpMWx => OK
+
+!ENTRY org.eclipse.ui 2 2 2020-07-19 20:04:30.222
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:22.806
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:22.811
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@43d00636[org.springframework.tooling.boot.ls:1.14.0.201912170939(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:22.817
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.242
+!MESSAGE Boot LS startup time from start to initialized: 1420ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.266
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.MbDptNQDisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.271
+!MESSAGE subscribing to classpath changes: sts4.classpath.MbDptNQD isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.275
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.279
+!MESSAGE subsribers = {sts4.classpath.MbDptNQD=Send Classpath Notifications(282)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.284
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.288
+!MESSAGE project anuncios-backend-apirest ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.293
+!MESSAGE project consumir-rest ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.297
+!MESSAGE Preparing classpath changed notification anuncios-backend-apirest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.300
+!MESSAGE project consumir-rest SKIPPED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.304
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.308
+!MESSAGE project spring-boot-backend-apirest ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.313
+!MESSAGE classpath=106 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.317
+!MESSAGE project spring-boot-backend-apirest SKIPPED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.320
+!MESSAGE buffering callback sts4.classpath.MbDptNQD anuncios-backend-apirest false 106
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.324
+!MESSAGE project spring-boot-restful ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.328
+!MESSAGE executing callback sts4.classpath.MbDptNQD 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.332
+!MESSAGE project spring-boot-restful SKIPPED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.336
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.340
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.MbDptNQD => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:05:24.348
+!MESSAGE executing callback sts4.classpath.MbDptNQD SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.633
+!MESSAGE Preparing classpath changed notification anuncios-backend-apirest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.640
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.652
+!MESSAGE classpath=108 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.664
+!MESSAGE buffering callback sts4.classpath.MbDptNQD anuncios-backend-apirest false 108
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.671
+!MESSAGE executing callback sts4.classpath.MbDptNQD 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:01.686
+!MESSAGE executing callback sts4.classpath.MbDptNQD SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.910
+!MESSAGE Preparing classpath changed notification anuncios-backend-apirest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.917
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.931
+!MESSAGE classpath=108 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.940
+!MESSAGE buffering callback sts4.classpath.MbDptNQD anuncios-backend-apirest false 108
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.947
+!MESSAGE executing callback sts4.classpath.MbDptNQD 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 20:09:04.960
+!MESSAGE executing callback sts4.classpath.MbDptNQD SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 21:28:09.240
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.MbDptNQD
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 21:28:09.245
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.MbDptNQD
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 21:28:09.250
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-07-19 21:28:09.254
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.MbDptNQD => OK
