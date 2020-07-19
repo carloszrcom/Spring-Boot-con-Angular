@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-			<version>2.3.4.RELEASE</version> <!-- Respetar esta versión -->
+			<version>2.3.6.RELEASE</version> <!-- Respetar esta versión -->
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
 		<dependency>
