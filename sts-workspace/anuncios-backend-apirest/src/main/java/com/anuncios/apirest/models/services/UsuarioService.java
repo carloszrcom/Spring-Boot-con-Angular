@@ -33,7 +33,7 @@ public class UsuarioService implements UserDetailsService {
 		Usuario usuario = usuarioDao.findByUsername(username);
 		
 		if (usuario == null) {
-			logger.error("Error en el login: el usuario '"+ username +"' no existe en el sistema");
+			logger.error("Error en el login: el usuario '" + username + "' no existe en el sistema");
 			throw new UsernameNotFoundException("Error en el login: el usuario '"+ username +"' no existe en el sistema");
 		}
 		
