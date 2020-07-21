@@ -11,7 +11,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 @Configuration
@@ -27,13 +26,31 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		super.configure(security);
+
+		security
+			.tokenKeyAccess("permitAll()") // Generar el token. Damos acceso a cualquier usuario, anónimo o no, para poder autenticarse
+			.checkTokenAccess("isAuthenticated()");	// Validar el token. Dar permiso al endpoint que se encarga de validar el token. Cada vez que queremos acceder a una página protegida tenemos wque validar nuestro token.
 	}
 
+	//////////////////////////////////////
+	
+	// Aquí se configuran los permisos de nuestros endpoints
+	
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		super.configure(clients);
+		
+		// Creamos un nuevo cliente
+		clients
+			.inMemory()
+			.withClient("angularapp")  // Cada aplicación tiene sus propias credenciales (angular, react, ...)
+			.secret(passwordEncoder.encode("12345")) // La contraseña
+			.scopes("read", "write") // El alcance, el permiso q va a tener el cliente (la app)
+			.authorizedGrantTypes("password", "refresh_token")  // Tipo de concesión del token. Utilizamos password cuando es usuario + contraseña
+			.accessTokenValiditySeconds(3600) // Validez del accesstoken
+			.refreshTokenValiditySeconds(3600); // Validez del refreshtoken
 	}
+	
+	//////////////////////////////////////
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
